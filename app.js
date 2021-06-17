@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb+srv://ayesha_005:jintech005005@cluster0.vfi8p.mongodb.net/node-auth?retryWrites=true&w=majority';
+const dbURI = '';
 mongoose.connect(dbURI,{ useNewUrlParser: true , useUnifiedTopology: true, useCreateIndex: true, useFindAndModify:false})
   .then((result) => {
     console.log('App is UP', checkUser);
