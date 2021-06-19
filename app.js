@@ -16,14 +16,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// database connection
-const dbURI = '';
-mongoose.connect(dbURI,{ useNewUrlParser: true , useUnifiedTopology: true, useCreateIndex: true, useFindAndModify:false})
-  .then((result) => {
-    console.log('App is UP', checkUser);
-    app.listen(3000)
-  })
-  .catch((err) => console.log(err));
 
 app.use(logger('dev'));
 app.use(express.json());
