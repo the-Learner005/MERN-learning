@@ -1,6 +1,10 @@
 const emailHelper = require("../helpers/mail.helper");
 const jwtHelper = require("../helpers/jwt.helper");
-const maxAge = 24 * 60 * 60;
+const dotenv = require('dotenv');
+dotenv.config();
+
+
+const maxAge = process.env.TOKEN_EXPIRY_TIME;
 
 const handleErrors = (err) => {
   let errors = { email: "", password: "" };

@@ -1,11 +1,10 @@
 const jwt = require('jsonwebtoken');
-const token_secret = 'pizza house secret';
-const maxAge = 24 * 60 * 60;
+const token_secret = process.env.TOKEN_SECRET;
 
 module.exports = {
   createToken: function(id, max_age) {
     return jwt.sign({ id }, token_secret, {
-      expiresIn: max_age ? max_age : maxAge
+      expiresIn: max_age ? max_age : process.env.TOKEN_EXPIRY_TIME
     });
   },
   validate_token:function(token){
