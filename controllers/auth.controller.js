@@ -3,9 +3,7 @@ const jwtHelper = require("../helpers/jwt.helper");
 const dotenv = require('dotenv');
 dotenv.config();
 
-
 const maxAge = process.env.TOKEN_EXPIRY_TIME;
-
 const handleErrors = (err) => {
   let errors = { email: "", password: "" };
 
@@ -50,6 +48,7 @@ module.exports = {
       res.status(201).json({ userid: 11122 });
 
     } catch (err) {
+      console.log(err);
       const errors = handleErrors(err);
       res.status(400).json({ errors });
     }
