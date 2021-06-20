@@ -1,14 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var {requireAuth, checkUser} = require('./middleware/auth.middleware');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const {requireAuth, checkUser} = require('./middleware/auth.middleware')
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth.route');
 
-var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-var authRouter = require('./routes/auth.route');
+
 
 var app = express();
 
@@ -28,6 +28,7 @@ app.use(cookieParser());
 app.get('*', checkUser);
 app.use('/', indexRouter);
 app.use(authRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

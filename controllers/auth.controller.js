@@ -35,17 +35,16 @@ module.exports = {
   
       const token = jwtHelper.createToken(11122);
       var fullUrl = req.protocol + "://" + req.get("host");
-
       var mailOptions = {
         from: "pizzahouse@yahoo.com",
         to: email,
         subject: "Please Verify Your Account",
         text: "Click On this link \n " + fullUrl + "?token=" + token,
       };
-
       emailHelper.sendMail(mailOptions);
       res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
       res.status(201).json({ userid: 11122 });
+
     } catch (err) {
       const errors = handleErrors(err);
       res.status(400).json({ errors });
